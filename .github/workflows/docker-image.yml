@@ -18,7 +18,7 @@ jobs:
     
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build ./app1 -t charmbracelets/react-app-sample
+      run: docker build ./app-1 -t charmbracelets/react-app-sample
       
     - name: Build the Docker image
       run: docker push charmbracelets/react-app-sample
