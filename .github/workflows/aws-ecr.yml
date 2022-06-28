@@ -35,6 +35,6 @@ jobs:
          REPOSITORY: afua-python-nginx-app
          IMAGE_TAG: ${{ github.sha }}
         run: |
-         docker build -t ./app-1 $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+         docker build ./app-1 -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         
