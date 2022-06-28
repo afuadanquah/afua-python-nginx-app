@@ -34,6 +34,7 @@ jobs:
          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
          REPOSITORY: afua-python-nginx-app
          IMAGE_TAG: ${{ github.sha }}
+        working-directory: ./app-1
         run: |
          docker build ./app-1 -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
