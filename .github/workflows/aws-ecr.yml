@@ -7,27 +7,23 @@ on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 jobs:
   build-and-push:
+  
     runs-on: ubuntu-latest
+    
     steps:
+    
+      - name: Checkout
+        uses: actions/checout@v2
     
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          role-external-id: ${{ secrets.AWS_ROLE_EXTERNAL_ID }}
-          role-duration-seconds: 1200
-          role-session-name: MySessionName
+          aws-region: us-west-2
     
       - name: Login to Amazon ECR
         id: login-ecr
